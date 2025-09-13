@@ -1,0 +1,30 @@
+name: Export slides as PDF
+on: push
+permissions:
+  contents: read
+jobs:
+  export:
+    name: Export slides
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./presentation
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Setup @antfu/ni
+        run: npm i -g @antfu/ni
+      - name: Install node dependencies
+        run: nci --with-deps
+      - name: Pre-export (optimize dependencies)
+        run: nr export
+      - name: Export as PDF
+        run: nr export --with-toc
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Exported slides
+          path: presentation/knockin-on-headers-door.pdf
+          if-no-files-found: error

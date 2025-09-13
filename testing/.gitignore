@@ -1,0 +1,10 @@
+**/build*
+**/*.obj
+**/*.exe
+**/*.lib
+**/*.ifc
+**/*.a
+**/*.o
+**/gcm.cache
+**/*.pcm
+**/a.out

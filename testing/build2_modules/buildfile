@@ -1,0 +1,7 @@
+cxx.std = latest
+cxx.features.modules=true
+
+using cxx
+
+./: libue{lib}: mxx{lib.cppm} cxx{lib.impl.cpp}
+./: exe{main}: cxx{main.cpp} libue{lib}

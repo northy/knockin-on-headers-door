@@ -1,0 +1,9 @@
+[requires]
+fmt/11.2.0
+
+[options]
+fmt/*:header_only=True
+
+[generators]
+CMakeDeps
+CMakeToolchain

@@ -1,0 +1,35 @@
+{
+  "name": "knockin-on-headers-door-presentation",
+  "description": "Presentation project for the talk 'Knockin' on headers door'",
+  "homepage": "https://northy.github.io/knockin-on-headers-door",
+  "license": "(CC-BY-4.0 AND MIT)",
+  "author": {
+    "name": "Alexsandro Thomas",
+    "email": "alexsandrogthomas@gmail.com",
+    "url": "https://github.com/northy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northy/knockin-on-headers-door.git",
+    "directory": "presentation"
+  },
+  "dependencies": {
+    "@iconify-json/devicon": "^1.2.43",
+    "@iconify-json/devicon-plain": "^1.2.39",
+    "@iconify-json/solar": "^1.2.4",
+    "@iconify-json/vscode-icons": "^1.2.30",
+    "@slidev/cli": "^52.1.0",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.55.0",
+    "plotly.js-dist-min": "^3.1.0",
+    "qrcode": "^1.5.4"
+  },
+  "scripts": {
+    "serve": "slidev slides.md --port 3030",
+    "build": "slidev build slides.md --out build",
+    "export": "slidev export slides.md --wait 10000"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5"
+  }
+}
