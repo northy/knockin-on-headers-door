@@ -2,7 +2,9 @@
 
 Git repository for the presentation `Knockin' on Header's Door: An Overview of C++ Modules`.
 
-## Structure
+View the presentation at [https://northy.github.io/knockin-on-headers-door](https://northy.github.io/knockin-on-headers-door)
+
+## Repository Structure
 
 - `presentation/` contains the Node project with the presentation.
 - `testing/` contains code that used for experimenting and developing the presentation's content.
