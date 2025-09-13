@@ -17,6 +17,8 @@ jobs:
         working-directory: ./presentation
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Setup Node JS
         uses: actions/setup-node@v4
         with:
