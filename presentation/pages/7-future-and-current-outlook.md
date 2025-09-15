@@ -24,6 +24,35 @@ layout: default
 
 ---
 layout: default
+---
+
+## Lack of ecosystem adoption
+
+Source: [Are We Modules Yet?](https://arewemodulesyet.org)
+
+<div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex justify-center">
+
+<LightOrDark>
+<template #dark>
+  
+![Modules progress bar from https://arewemodulesyet.org](/arewemodulesyet_dark.png)
+
+</template>
+<template #light>
+
+![Modules progress bar from https://arewemodulesyet.org](/arewemodulesyet_light.png)
+
+</template>
+</LightOrDark>
+
+</div>
+
+<!-- ### Notes:
+- "Are We Modules Yet?" bases popularity and packages on the VCPKG ports
+-->
+
+---
+layout: default
 info: |
     https://clang.llvm.org/docs/StandardCPlusPlusModules.html#privacy-issue
     https://www.reddit.com/r/cpp/comments/1busseu/comment/kxux02i
@@ -51,6 +80,20 @@ That doesn't have to be forever:
 <!-- ### Notes:
 * Intermediate Format Components (IFCs) could allow DLLs to be type-safe and self-descriptive for dynamic linking, reflection, or Foreign Function Interfaces (FFIs), without requiring a C++ compiler.
 -->
+
+---
+layout: default
+---
+
+## New features and improvements
+
+<br>
+
+- [CWG#2732 (2023) DR](https://cplusplus.github.io/CWG/issues/2732.html): Preprocessor definitions don't affect importing headers
+- [P3034](http://wg21.link/P3034R1): Forbids macro expansion in the name of module declarations
+- [P3618](https://wg21.link/P3618R0): Clarifies `main` usage in named modules
+- [P2577](http://wg21.link/P2577R2), [P2701](http://wg21.link/P2701R0), [P3286](http://wg21.link/P3286R0): Providing modules alongside prebuilt C++ libraries
+
 
 ---
 layout: default
@@ -87,45 +130,3 @@ compilations, or introducing accompanying files describing the header unit struc
 exploration of this space. An implementation is also permitted to not provide any mapping mechanism, and
 process each header unit independently
 -->
-
----
-layout: default
----
-
-## Lack of ecosystem adoption
-
-Source: [Are We Modules Yet?](https://arewemodulesyet.org)
-
-<div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 flex justify-center">
-
-<LightOrDark>
-<template #dark>
-  
-![Modules progress bar from https://arewemodulesyet.org](/arewemodulesyet_dark.png)
-
-</template>
-<template #light>
-
-![Modules progress bar from https://arewemodulesyet.org](/arewemodulesyet_light.png)
-
-</template>
-</LightOrDark>
-
-</div>
-
-<!-- ### Notes:
-- "Are We Modules Yet?" bases popularity and packages on the VCPKG ports
--->
-
----
-layout: default
----
-
-## New features and improvements
-
-<br>
-
-- [CWG#2732 (2023) DR](https://cplusplus.github.io/CWG/issues/2732.html): Preprocessor definitions don't affect importing headers
-- [P3034](http://wg21.link/P3034R1): Forbids macro expansion in the name of module declarations
-- [P3618](https://wg21.link/P3618R0): Clarifies `main` usage in named modules
-- [P2577](http://wg21.link/P2577R2), [P2701](http://wg21.link/P2701R0), [P3286](http://wg21.link/P3286R0): Providing modules alongside prebuilt C++ libraries
