@@ -116,6 +116,10 @@ Source: [Are We Modules Yet?](https://arewemodulesyet.org)
 
 </div>
 
+<!-- ### Notes:
+- "Are We Modules Yet?" bases popularity and packages on the VCPKG ports
+-->
+
 ---
 layout: default
 disabled: true
