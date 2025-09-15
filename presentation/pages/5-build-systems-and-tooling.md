@@ -113,7 +113,7 @@ export import rectangle;
 
 We can "scan" the dependencies:
 
-<!-- Format determined by [P1689R5](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p1689r5.html) -->
+<!-- Format determined by [P1689](https://wg21.link/P1689R5) -->
 
 ```json [square.cppm.ddi ~i-vscode-icons:file-type-json~]{hide|*|2|3-6|7-9}{at: 1}
 {

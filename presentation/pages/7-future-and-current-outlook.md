@@ -13,11 +13,8 @@ layout: default
 <br>
 
 - C++20 introduced modules
-    - [CWG#2732 (2023) DR](https://cplusplus.github.io/CWG/issues/2732.html): Preprocessor definitions don't affect importing the header
 - C++23 enhanced modules with the standard library modules
 - C++26 proposes further refinements to improve tooling support
-    - [P3034R1](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p3034r1.html): Forbids macro expansion in the name of module declarations
-    - [P3618R0](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2025/p3618r0.html): Clarifies `main` usage in named topics
 
 <v-click>
 
@@ -122,9 +119,13 @@ Source: [Are We Modules Yet?](https://arewemodulesyet.org)
 
 ---
 layout: default
-disabled: true
 ---
 
-## Upcoming features
+## New features and improvements
 
-<!-- TODO: PRs in progress? -->
+<br>
+
+- [CWG#2732 (2023) DR](https://cplusplus.github.io/CWG/issues/2732.html): Preprocessor definitions don't affect importing headers
+- [P3034](http://wg21.link/P3034R1): Forbids macro expansion in the name of module declarations
+- [P3618](https://wg21.link/P3618R0): Clarifies `main` usage in named modules
+- [P2577](http://wg21.link/P2577R2), [P2701](http://wg21.link/P2701R0), [P3286](http://wg21.link/P3286R0): Providing modules alongside prebuilt C++ libraries
