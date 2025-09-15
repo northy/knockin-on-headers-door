@@ -117,16 +117,10 @@ src: ./pages/8-conclusion.md
 <!-- imported -->
 
 ---
-layout: statement
----
-
-## Questions?
-
----
 layout: end
 ---
 
-## Thank you very much
+## Thank you
 
 ---
 src: ./pages/9-appendix.md
