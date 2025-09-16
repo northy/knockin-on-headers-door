@@ -5,41 +5,82 @@ layout: section
 # Build Systems and Tooling
 
 ---
+layout: default
+---
+
+## Build ordering
+
+Suppose we have the following components:
+
+<v-clicks>
+
+- `libGeometry`
+    - `Point`
+    - `Rectangle`
+    - `Square`
+    - `Circle`
+- `Main`
+
+</v-clicks>
+
+<v-click>
+
+And the following rules:
+
+`libGeometry` &rarr; `Main`
+
+</v-click>
+
+---
 layout: statement
-title: Compilation ordering without modules
+title: Build ordering
+zoom: 0.67
 ---
 
 ```mermaid
 ---
-title: Compilation ordering without modules
+title: Build ordering
 ---
 
 flowchart LR
-    subgraph headers
-        point.h
-        rectangle.h
-        square.h
-        circle.h
-        triangle.h
+    subgraph point.h
+        point.h_icon@{ icon: "solar:file-text-outline" }
+    end
+    subgraph rectangle.h
+        rectangle.h_icon@{ icon: "solar:file-text-outline" }
+    end
+    subgraph square.h
+        square.h_icon@{ icon: "solar:file-text-outline" }
+    end
+    subgraph circle.h
+        circle.h_icon@{ icon: "solar:file-text-outline" }
     end
 
-    subgraph objects
-        rectangle.cpp
-        square.cpp
-        circle.cpp
-        triangle.cpp
-        main.cpp
+    subgraph rectangle.cpp
+        rectangle.cpp_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph square.cpp
+        square.cpp_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph circle.cpp
+        circle.cpp_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph main.cpp
+        main.cpp_icon@{ icon: "solar:file-text-bold" }
     end
 
-    subgraph ELFs
-        libgeometry.a
-        main
+    libgeometry.a:::rounded
+    subgraph libgeometry.a
+        libgeometry.a_icon@{ icon: "devicon-plain:linux" }
+    end 
+    main:::rounded
+    subgraph main
+        main_icon@{ icon: "devicon-plain:linux" }
     end
 
     point.h -.-> rectangle.h
     rectangle.h -.-> square.h
     point.h -.-> circle.h
-    point.h -.-> triangle.h
 
     rectangle.h -.-> rectangle.cpp
     rectangle.h -.-> main.cpp
@@ -47,16 +88,89 @@ flowchart LR
     square.h -.-> main.cpp
     circle.h -.-> circle.cpp
     circle.h -.-> main.cpp
-    triangle.h -.-> triangle.cpp
-    triangle.h -.-> main.cpp
 
     rectangle.cpp --> libgeometry.a
     circle.cpp --> libgeometry.a
-    triangle.cpp --> libgeometry.a
     square.cpp --> libgeometry.a
     
     main.cpp --> main
     libgeometry.a --> main
+
+    classDef rounded rx:15, ry:15
+```
+
+---
+layout: statement
+title: Build ordering
+zoom: 0.67
+---
+
+```mermaid
+---
+title: Build ordering
+---
+
+flowchart LR
+    subgraph headers
+        subgraph point.h
+            point.h_icon@{ icon: "solar:file-text-outline" }
+        end
+        subgraph rectangle.h
+            rectangle.h_icon@{ icon: "solar:file-text-outline" }
+        end
+        subgraph square.h
+            square.h_icon@{ icon: "solar:file-text-outline" }
+        end
+        subgraph circle.h
+            circle.h_icon@{ icon: "solar:file-text-outline" }
+        end
+    end
+
+    subgraph sources
+        subgraph rectangle.cpp
+            rectangle.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+        subgraph square.cpp
+            square.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+        subgraph circle.cpp
+            circle.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+        subgraph main.cpp
+            main.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+    end
+
+    subgraph binaries
+        libgeometry.a:::rounded
+        subgraph libgeometry.a
+            libgeometry.a_icon@{ icon: "devicon-plain:linux" }
+        end 
+        main:::rounded
+        subgraph main
+            main_icon@{ icon: "devicon-plain:linux" }
+        end
+    end
+
+    point.h -.-> rectangle.h
+    rectangle.h -.-> square.h
+    point.h -.-> circle.h
+
+    rectangle.h -.-> rectangle.cpp
+    rectangle.h -.-> main.cpp
+    square.h -.-> square.cpp
+    square.h -.-> main.cpp
+    circle.h -.-> circle.cpp
+    circle.h -.-> main.cpp
+
+    rectangle.cpp --> libgeometry.a
+    circle.cpp --> libgeometry.a
+    square.cpp --> libgeometry.a
+    
+    main.cpp --> main
+    libgeometry.a --> main
+
+    classDef rounded rx:15, ry:15
 ```
 
 <!-- ### Notes:
@@ -65,26 +179,43 @@ flowchart LR
 
 ---
 layout: statement
-title: Compilation ordering with modules
+title: Build ordering with modules
 ---
 
 ```mermaid
 ---
-title: Compilation ordering with modules
+title: Build ordering with modules
 ---
 
 flowchart LR
+    subgraph point.cppm
+        point.cppm_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph rectangle.cppm
+        rectangle.cppm_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph square.cppm
+        square.cppm_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph circle.cppm
+        circle.cppm_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph geometry.cppm
+        geometry.cppm_icon@{ icon: "solar:file-text-bold" }
+    end
+    subgraph main.cpp
+        main.cpp_icon@{ icon: "solar:file-text-bold" }
+    end
+
     point.cppm --> rectangle.cppm
     rectangle.cppm --> square.cppm
     point.cppm --> circle.cppm
-    point.cppm --> triangle.cppm
 
     rectangle.cppm --> geometry.cppm
     square.cppm --> geometry.cppm
     circle.cppm --> geometry.cppm
-    triangle.cppm --> geometry.cppm
 
-    geometry.cppm --> main.cppm
+    geometry.cppm --> main.cpp
 ```
 
 ---
