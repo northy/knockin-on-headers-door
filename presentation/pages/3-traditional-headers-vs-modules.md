@@ -233,7 +233,7 @@ layout: default
 
 <br>
 
-```cpp [Private.h ~i-vscode-icons:file-type-cheader~]{*|1|4|none}
+```cpp [Private.h ~i-vscode-icons:file-type-cheader~]{*|1|4|none|none|none|none|*|none}
 #define SECRET 42
 namespace Private
 {
@@ -243,7 +243,7 @@ namespace Private
 
 <div class="grid grid-cols-2 gap-x-3 items-center">
 
-```cpp [UserFacing.h ~i-vscode-icons:file-type-cheader~]{hide|*|5-6|1,9-10|none}{at: 3}
+```cpp [UserFacing.h ~i-vscode-icons:file-type-cheader~]{hide|*|2-6|1,8-9|none}{at: 3}
 using Pimpl = shared_ptr<struct UserFacingImpl>;
 class UserFacing
 {
@@ -252,12 +252,11 @@ public:
     int getNumber() const;
 
 private:
-    UserFacing(Pimpl &&pimpl);
     Pimpl m_pimpl;
 };
 ```
 
-```cpp [UserFacing.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2|4-8|10-11}{at: 6}
+```cpp [UserFacing.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2|7-8|4-5|10-11}{at: 6}
 #include "UserFacing.h"
 #include "Private.h"
 
@@ -277,11 +276,54 @@ int UserFacing::getNumber() const
 layout: default
 ---
 
-## Encapsulation
+## Encapsulation with modules
+
+<div class="grid grid-cols-2 gap-x-3 items-center">
+
+```cpp [Private.cppm ~i-vscode-icons:file-type-cpp2~]{*|3|2|5|none|none|*|none}
+module;
+#define SECRET 42
+export module Private;
+namespace Private {
+    export inline int secret() {  return SECRET; }
+}
+```
+
+```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{hide|*|1|2|7-17|4-5,11,16,19-20}{at: 4}
+export module UserFacing;
+import Private;
+
+struct UserFacingImpl
+{ const int number = Private::secret(); };
+
+export class UserFacing
+{
+public:
+    UserFacing()
+      : m_pimpl(std::make_shared<UserFacingImpl>())
+    {}
+
+    int getNumber() const
+    {
+        return m_pimpl->number;
+    }
+
+private:
+    std::shared_ptr<UserFacingImpl> m_pimpl;
+};
+```
+
+</div>
+
+---
+layout: default
+---
+
+## Encapsulation with modules (two units)
 
 <br>
 
-```cpp [Private.cppm ~i-vscode-icons:file-type-cpp2~]{*|3|2|5|none}
+```cpp [Private.cppm ~i-vscode-icons:file-type-cpp2~]{none|none|none|none|*|none}
 module;
 #define SECRET 42
 export module Private;
@@ -292,7 +334,7 @@ namespace Private {
 
 <div class="grid grid-cols-2 gap-x-3 items-center">
 
-```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{hide|*|1|4-12|none}{at: 4}
+```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{*|1|3-11|none}{at: 1}
 export module UserFacing;
 
 using Pimpl = shared_ptr<struct UserFacingImpl>;
@@ -302,12 +344,11 @@ public:
     UserFacing();
     int getNumber() const;
 private:
-    UserFacing(Pimpl &&pimpl);
     Pimpl m_pimpl;
 };
 ```
 
-```cpp [UserFacing.impl.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2|4-8|10-11}{at: 7}
+```cpp [UserFacing.impl.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2|4-5,8,11}{at: 3}
 module UserFacing;
 import Private;
 
@@ -338,6 +379,10 @@ Let's compare compilation times:
 Helpers:
 
 - `all_std.h`: Includes all standard library headers
+
+<!-- ### Notes:
+- The timings are taken from [P2412](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf): An Intel i-7 running windows
+-->
 
 ---
 layout: default

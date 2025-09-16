@@ -6,8 +6,7 @@ g++ -std=c++23 -fmodules private_dep/Private.cppm -c
 ar q libPrivate.a Private.o
 
 g++ -std=c++23 -fmodules UserFacing.cppm -c
-g++ -std=c++23 -fmodules UserFacing.impl.cpp -c
-ar q libUserFacing.a UserFacing.o UserFacing.impl.o
+ar q libUserFacing.a UserFacing.o
 
 rm gcm.cache/Private.gcm
 

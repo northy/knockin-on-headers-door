@@ -12,7 +12,5 @@ public:
     int getNumber() const;
 
 private:
-    UserFacing(std::shared_ptr<UserFacingImpl> &&pimpl);
-
     std::shared_ptr<UserFacingImpl> m_pimpl;
 };
