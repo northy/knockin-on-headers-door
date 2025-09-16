@@ -12,6 +12,8 @@ info: |
 
   By the end of this talk, attendees will have a clear understanding of how to begin integrating C++20 modules into their projects, recognizing both the advantages and the current challenges of this evolving feature.
 
+  Note: This presentation runs better on chromium-based browsers. If you experience any problems, please switch your browser accordingly.
+
   The source code for the presentation, code snippets and feature testing can be found at the [git repository](https://github.com/northy/knockin-on-headers-door).
 
   [Knockin' on Header's Door: An Overview of C++ Modules (slides)](https://northy.github.io/knockin-on-headers-door) © 2025 by [Alexsandro Thomas](https://github.com/northy) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
