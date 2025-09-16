@@ -62,23 +62,23 @@ info: |
 
 Current implementations are underwhelming:
 
-* Difficult to utilize
-* Not an information hiding mechanism
-* Not portable
-* Lack of ABI stability
+- Difficult to utilize
+- Not an information hiding mechanism
+- Not portable
 
 <v-click>
 
 That doesn't have to be forever:
 
-* BMIs could be shipped
-* Shared libraries could be type-safe and self-descriptive
-* Potential cross-compiler adoption
+- BMIs could be shipped independently
+- Shared libraries could be type-safe and self-descriptive
+- Could enable Foreign Function Interfaces (FFIs)
+- Cross-compiler compatibility could appear
 
 </v-click>
 
 <!-- ### Notes:
-* Intermediate Format Components (IFCs) could allow DLLs to be type-safe and self-descriptive for dynamic linking, reflection, or Foreign Function Interfaces (FFIs), without requiring a C++ compiler.
+- Intermediate Format Components (IFCs) could allow DLLs to be type-safe and self-descriptive for dynamic linking, reflection, or Foreign Function Interfaces (FFIs), without requiring a C++ compiler.
 -->
 
 ---
@@ -93,7 +93,6 @@ layout: default
 - [P3034](http://wg21.link/P3034R1): Forbids macro expansion in the name of module declarations
 - [P3618](https://wg21.link/P3618R0): Clarifies `main` usage in named modules
 - [P2577](http://wg21.link/P2577R2), [P2701](http://wg21.link/P2701R0), [P3286](http://wg21.link/P3286R0): Providing modules alongside prebuilt C++ libraries
-
 
 ---
 layout: default
