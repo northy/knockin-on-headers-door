@@ -53,6 +53,16 @@ Source: [Are We Modules Yet?](https://arewemodulesyet.org)
 
 ---
 layout: default
+---
+
+## Adoption Challenges
+
+- Chicken-egg: users vs tooling
+- Compiler/build support is uneven
+- Libraries rarely publish modules
+
+---
+layout: default
 info: |
     https://clang.llvm.org/docs/StandardCPlusPlusModules.html#privacy-issue
     https://www.reddit.com/r/cpp/comments/1busseu/comment/kxux02i
