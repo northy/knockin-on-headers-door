@@ -611,3 +611,17 @@ There are variations among compiler implementations:
 - `.ifc`: Intermediate Format Components (IFCs)
 - No standard BMI ABI: The formats, internal layouts, name mangling, metadata differ. This blocks interoperability of prebuilt modules across compiler vendors.
 -->
+
+---
+layout: default
+info: |
+    https://clang.llvm.org/docs/StandardCPlusPlusModules.html#consistency-requirements
+---
+
+## Consistency requirements
+
+Compilers perform very strict checking for consistency:
+
+- Compiler options consistency
+- Source Files Consistency
+- Object definition consistency

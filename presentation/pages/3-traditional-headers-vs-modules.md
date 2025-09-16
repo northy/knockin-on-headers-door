@@ -591,20 +591,3 @@ info: |
 * Component interfaces compiled independently from the TUs that import them
 * Processed only once, into an efficient binary representation (BMI)
 * Modules provide strong isolation, no global polution
-
----
-layout: default
-info: |
-    https://clang.llvm.org/docs/StandardCPlusPlusModules.html#consistency-requirements
----
-
-## New issues
-
-<br>
-
-<!-- TODO: This is not well explained at all -->
-
-* Consistency requirements
-    * Compiler options consistency
-    * Source Files Consistency
-    * Object definition consistency
