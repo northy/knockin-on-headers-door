@@ -578,6 +578,28 @@ info: |
 | Mix         |   2.20s  |     3.53s    |  0.77s |    0.99s   | <span v-mark.red=1>0.44s</span> |
 
 ---
+layout: fact
+---
+
+## Compile-time performance (GCC)
+
+|             | #include | #include all |              import             | import all |            import std           |
+|-------------|:--------:|:------------:|:-------------------------------:|:----------:|:-------------------------------:|
+| Hello world |   0.67s  |     1.63s    | <span v-mark.red=1>0.09s</span> |    0.28s   |              0.27s              |
+| Mix         |   1.82s  |     2.60s    |              1.58s              |    1.26s   | <span v-mark.red=1>1.09s</span> |
+
+---
+layout: fact
+---
+
+## Compile-time performance (clang)
+
+|             | #include | #include all |              import             | import all |            import std           |
+|-------------|:--------:|:------------:|:-------------------------------:|:----------:|:-------------------------------:|
+| Hello world |   0.92s  |     2.02s    | <span v-mark.red=1>0.06s</span> |    0.04s   |              0.07s              |
+| Mix         |   1.62s  |     2.23s    |                -                |    0.49s   | <span v-mark.red=1>0.35s</span> |
+
+---
 layout: default
 ---
 
