@@ -122,7 +122,7 @@ src: ./pages/8-conclusion.md
 layout: end
 ---
 
-## Thank you
+## Thank you!
 
 ---
 src: ./pages/9-appendix.md

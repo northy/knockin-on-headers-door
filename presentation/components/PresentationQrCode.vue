@@ -1,5 +1,5 @@
 <template>
-  <a href="https://northy.github.io/knockin-on-headers-door">Slides URL</a>: https://northy.github.io/knockin-on-headers-door
+  <a href="https://northy.github.io/knockin-on-headers-door">Slides URL</a>: northy.github.io/knockin-on-headers-door
 
   <a href="https://northy.github.io/knockin-on-headers-door">
     <div class="mt-1 ml-[32.5%] left-0 right-0" ref="qrcodeContainer"></div>
