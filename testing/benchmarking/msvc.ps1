@@ -18,7 +18,7 @@ function AverageRuntime {
     $Repetitions=5
     
     # Warmup
-    Invoke-Expression "$Command" 2> $null 1> $null
+    Invoke-Expression "$Command"
     
     Write-Host -NoNewline "Running '$Command', $Repetitions times: "
 
@@ -33,19 +33,40 @@ function AverageRuntime {
     Write-Host "took $avg milliseconds on average."
 }
 
-$cl = "cl.exe /std:c++latest /EHsc"
+$cl = "cl.exe /std:c++latest /EHsc /nologo"
+$iostream_ifc = "/headerUnit:angle iostream=iostream.ifc"
+$stdcpp_ifc = "/headerUnit:quote stdcpp.h=stdcpp.h.ifc"
+$headers_to_ifc = 'iostream','map','vector','algorithm','chrono','random','memory','cmath','thread'
 
+$necessary_ifc = ''
+
+foreach ($header in $headers_to_ifc)
+{
+    $necessary_ifc = "$necessary_ifc /headerUnit:angle $header=$header.ifc"
+}
+
+Write-Host "Building header units"
+
+Invoke-Expression "$cl /c `"$env:VCToolsInstallDir\modules\std.ixx`""
+Invoke-Expression "$cl /exportHeader /headerName:quote stdcpp.h"
+
+foreach ($header in $headers_to_ifc)
+{
+    Invoke-Expression "$cl /exportHeader /headerName:angle $header"
+}
+
+Write-Host "Header units done, running benchmark"
 
 AverageRuntime -Command "$cl /c include_necessary/hello_world.cpp"
 AverageRuntime -Command "$cl /I. /c include_all/hello_world.cpp"
-AverageRuntime -Command "$cl /c import_necessary/hello_world.cpp"
-AverageRuntime -Command "$cl /I. /c import_all/hello_world.cpp"
+AverageRuntime -Command "$cl $iostream_ifc /c import_necessary/hello_world.cpp"
+AverageRuntime -Command "$cl $stdcpp_ifc /c import_all/hello_world.cpp"
 AverageRuntime -Command "$cl /c import_std/hello_world.cpp"
 
 
 AverageRuntime -Command "$cl /c include_necessary/mix.cpp"
 AverageRuntime -Command "$cl /I. /c include_all/mix.cpp"
-AverageRuntime -Command "$cl /c import_necessary/mix.cpp"
-AverageRuntime -Command "$cl /I. /c import_all/mix.cpp"
+AverageRuntime -Command "$cl $necessary_ifc /c import_necessary/mix.cpp"
+AverageRuntime -Command "$cl $stdcpp_ifc /c import_all/mix.cpp"
 AverageRuntime -Command "$cl /c import_std/mix.cpp"
 
