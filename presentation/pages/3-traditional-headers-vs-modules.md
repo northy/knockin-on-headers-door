@@ -579,6 +579,17 @@ info: |
 
 ---
 layout: default
+---
+
+### A small note
+
+"But I could achieve this before with XYZ!"
+
+- Modules are standardized, and accessible by every C++ developer
+- Every "getting started" guide can provide this
+
+---
+layout: default
 info: |
     Information sourced from [Microsoft Learn](https://learn.microsoft.com/en-us/cpp/cpp/modules-cpp?view=msvc-170)
 ---
