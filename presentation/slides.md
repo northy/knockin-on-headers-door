@@ -39,7 +39,7 @@ download: true
 # First slide's frontmatter
 layout: cover
 class: "text-center"
-hide: false # `true` when exporting for CppCon
+hide: true # `true` when exporting for CppCon
 ---
 
 <script setup>
@@ -54,7 +54,7 @@ import TitleRenderer from '#slidev/title-renderer'
 ---
 layout: cover
 title: CppCon cover
-hide: true # `false` when exporting for cppcon
+hide: false # `false` when exporting for cppcon
 ---
 
 <!-- the `background:` frontmatter option dims the image, so do it here instead -->
