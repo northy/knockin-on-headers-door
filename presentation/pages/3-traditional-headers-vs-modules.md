@@ -18,6 +18,88 @@ layout: statement
 layout: default
 ---
 
+## Dependency completeness
+
+<div class="grid grid-cols-2 gap-x-4 items-center">
+
+```cpp [point.h ~i-vscode-icons:file-type-cheader~]
+#pragma once
+
+struct Point
+{
+    int x, y;
+};
+```
+
+```cpp [rectangle.h ~i-vscode-icons:file-type-cheader~]
+#pragma once
+
+#include "point.h"
+
+struct Rectangle
+{
+    Point topLeft, bottomRight;
+};
+```
+
+</div>
+
+```cpp[main.cpp ~i-vscode-icons:file-type-cpp~]
+#include "point.h"
+#include "rectangle.h"
+
+int main()
+{
+    const Point p1{1, 2}, p2{2, 4};
+    const Rectangle r{p1, p2};
+}
+```
+
+---
+layout: default
+---
+
+## Dependency completeness
+
+<div class="grid grid-cols-2 gap-x-4 items-center">
+
+```cpp [point.cppm ~i-vscode-icons:file-type-cpp2~]
+export module point;
+
+export struct Point
+{
+    int x, y;
+};
+```
+
+```cpp [rectangle.cppm ~i-vscode-icons:file-type-cpp2~]
+export module rectangle;
+
+export import point;
+
+export struct Rectangle
+{
+    Point topLeft, bottomRight;
+};
+```
+
+</div>
+
+```cpp[main.cpp ~i-vscode-icons:file-type-cpp~]
+import point;
+import rectangle;
+
+int main()
+{
+    const Point p1{1, 2}, p2{2, 4};
+    const Rectangle r{p1, p2};
+}
+```
+
+---
+layout: default
+---
+
 ## Built-in type definitions at namespace or global scope
 
 ```cpp [header.h ~i-vscode-icons:file-type-cheader~]
