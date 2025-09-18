@@ -36,7 +36,6 @@ info: |
 Modern tool for consuming external code:
 
 - Packages components and encapsulate their implementations
-- Reduces opportunities for violations of the ODR
 - Designed to co-exist but minimize reliance on the preprocessor
 
 <v-click>

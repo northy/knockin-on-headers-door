@@ -663,17 +663,6 @@ info: |
 layout: fact
 ---
 
-## Compile-time performance (MSVC)
-
-|            | #include | #include all |              import             | import all |          import std             |
-|------------|:--------:|:------------:|:-------------------------------:|:----------:|:-------------------------------:|
-| Helo world | 0.55s    | 1.68s        | <span v-mark.red=1>0.11s</span> | 0.12s      | 0.12s                           |
-| Mix        | 1.03s    | 1.76s        | 0.33s                           | 0.26s      | <span v-mark.red=1>0.25s</span> |
-
----
-layout: fact
----
-
 ## Compile-time performance (GCC)
 
 |             | #include | #include all |              import             | import all |            import std           |
