@@ -649,7 +649,7 @@ third_party/
 <v-click at=5>
 
 <!-- Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35213 for x64 -->
-Compiling... <span v-click=6>Surprise! `pointlib/point.h(3): error C2011: 'Point': 'struct' type redefinition`</span>
+Compiling... <span v-click=6>`pointlib/point.h(3): error C2011: 'Point': 'struct' type redefinition`</span>
 
 </v-click>
 
@@ -695,7 +695,7 @@ title: Exploring include order
 
 <div class="grid grid-cols-2 gap-x-4 items-center">
 
-```cpp [point.h ~i-vscode-icons:file-type-cheader~]{*}{at: 1}
+```cpp [point.h ~i-vscode-icons:file-type-cheader~]
 #pragma once
 
 struct Point
@@ -862,7 +862,7 @@ layout: default
 
 ````md magic-move[lib.h ~i-vscode-icons:file-type-cheader~]{at: 1}
 
-```cpp {*|3|5|7|none|*|7|none|*|none|*|*|*|*|*}
+```cpp {*|3|5|7|none|*|7|none|*|5-7|*|*|*|*|*}
 #pragma once
 
 struct Point {...};
@@ -1068,7 +1068,7 @@ using namespace std;
 
 <v-clicks>
 
-* This pollutes the global namespace
+* Pollutes the global namespace
 * Every transitive header becomes problematic
 * Increases the chance of name collisions
 

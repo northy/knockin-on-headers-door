@@ -601,7 +601,7 @@ The process can easily become:
 - Difficult to maintain
 - Error-prone
 
-Better first-class support from tools is greatly awaited.
+Better first-class support from tools is greatly awaited
 
 ---
 layout: default

@@ -371,7 +371,7 @@ layout: default
 ## Compile-time performance
 
 Let's compare compilation times:
-* `hello_world.cpp`: Needs just \<iostream\>.
+* `hello_world.cpp`: Needs just `<iostream>`.
 * `mix.cpp`: Requires including 9 standard headers.
 
 <br>
@@ -620,6 +620,7 @@ layout: default
 
 - Modules are standardized, and accessible by every C++ developer
 - Every "getting started" guide can provide this
+- Imports are a portable performance gain
 
 ---
 layout: default

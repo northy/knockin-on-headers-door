@@ -52,7 +52,7 @@ Fundamental goals:
 </v-click>
 
 <!-- ### Notes:
-- Componentialization: Clearly separate interfaces from implementations
+- Componentialization: Single components are logically grouped
 - Isolation from macros: Provides a strict boundary that macros cannot cross
 - Scalable build: Avoid redundant re-parsing of headers
 - Support for modern semantics-aware developer tools: Well-structured, machine-readable representation of program entities
