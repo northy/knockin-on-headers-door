@@ -690,6 +690,74 @@ info:
 
 ---
 layout: default
+title: Exploring include order
+---
+
+<div class="grid grid-cols-2 gap-x-4 items-center">
+
+```cpp [point.h ~i-vscode-icons:file-type-cheader~]{*}{at: 1}
+#pragma once
+
+struct Point
+{
+    int x, y;
+};
+```
+
+````md magic-move[rectangle.h ~i-vscode-icons:file-type-cheader~]{at: 1}
+
+```cpp
+#pragma once
+
+#include "point.h"
+
+struct Rectangle
+{
+    Point topLeft, bottomRight;
+};
+```
+
+```cpp
+#pragma once
+
+struct Rectangle
+{
+    Point topLeft, bottomRight;
+};
+```
+
+````
+
+</div>
+
+````md magic-move[main.cpp ~i-vscode-icons:file-type-cpp~]{at: 2}
+
+```cpp
+#include "point.h"
+#include "rectangle.h"
+
+int main()
+{
+    const Point p1{1, 2}, p2{2, 4};
+    const Rectangle r{p1, p2};
+}
+```
+
+```cpp
+#include "rectangle.h"
+#include "point.h"
+
+int main()
+{
+    const Point p1{1, 2}, p2{2, 4};
+    const Rectangle r{p1, p2};
+}
+```
+
+````
+
+---
+layout: default
 info: |
     https://learn.microsoft.com/en-us/cpp/cpp/header-files-cpp?view=msvc-170#what-to-put-in-a-header-file
 ---
