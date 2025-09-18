@@ -32,10 +32,13 @@ And the following rules:
 </v-click>
 
 ---
-layout: statement
+layout: default
 title: Build ordering
-zoom: 0.67
 ---
+
+<div class="absolute top-[25%] left-[28%] -translate-x-1/2 -translate-y-1/2">
+
+<Transform :scale="2.3">
 
 ```mermaid
 ---
@@ -99,11 +102,18 @@ flowchart LR
     classDef rounded rx:15, ry:15
 ```
 
+</Transform>
+
+</div>
+
 ---
-layout: statement
+layout: default
 title: Build ordering
-zoom: 0.67
 ---
+
+<div class="absolute top-[24%] left-[25%] -translate-x-1/2 -translate-y-1/2">
+
+<Transform :scale="2.5">
 
 ```mermaid
 ---
@@ -172,6 +182,10 @@ flowchart LR
 
     classDef rounded rx:15, ry:15
 ```
+
+</Transform>
+
+</div>
 
 <!-- ### Notes:
 - This is what is called an "embarassingly parallel" build.
