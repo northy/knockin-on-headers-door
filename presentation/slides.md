@@ -34,7 +34,6 @@ twoslash: false
 monaco: false
 lineNumbers: true
 mdc: true
-download: true
 
 # First slide's frontmatter
 layout: cover
