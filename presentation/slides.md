@@ -52,7 +52,7 @@ import TitleRenderer from '#slidev/title-renderer'
 
 ---
 layout: cover
-title: CppCon cover
+title: Knockin' on Header's Door
 hide: true # `false` when exporting for cppcon
 ---
 
