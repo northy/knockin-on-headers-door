@@ -32,14 +32,14 @@ done
 
 hyperfine --warmup 5 -N \
     '/usr/bin/g++ -c -std=c++23 include_necessary/hello_world.cpp' \
-    '/usr/bin/g++ -c -std=c++23 -I. include_all/hello_world.cpp' \
+    '/usr/bin/g++ -c -std=c++23 -I. include_stdcpp_h/hello_world.cpp' \
     '/usr/bin/g++ -c -std=c++23 -fmodules import_necessary/hello_world.cpp' \
-    '/usr/bin/g++ -c -std=c++23 -fmodules -I. import_all/hello_world.cpp' \
+    '/usr/bin/g++ -c -std=c++23 -fmodules -I. import_stdcpp_h/hello_world.cpp' \
     '/usr/bin/g++ -c -std=c++23 -fmodules import_std/hello_world.cpp'
 
 hyperfine --warmup 5 -N \
     '/usr/bin/g++ -c -std=c++23 include_necessary/mix.cpp' \
-    '/usr/bin/g++ -c -std=c++23 -I. include_all/mix.cpp' \
+    '/usr/bin/g++ -c -std=c++23 -I. include_stdcpp_h/mix.cpp' \
     '/usr/bin/g++ -c -std=c++23 -fmodules import_necessary/mix.cpp' \
-    '/usr/bin/g++ -c -std=c++23 -fmodules -I. import_all/mix.cpp' \
+    '/usr/bin/g++ -c -std=c++23 -fmodules -I. import_stdcpp_h/mix.cpp' \
     '/usr/bin/g++ -c -std=c++23 -fmodules import_std/mix.cpp'

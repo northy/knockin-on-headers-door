@@ -32,13 +32,13 @@ done
 
 hyperfine --warmup 5 -N \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_necessary/hello_world.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_all/hello_world.cpp' \
+    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_stdcpp_h/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=iostream.pcm import_necessary/hello_world.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_all/hello_world.cpp' \
+    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=std=std.pcm import_std/hello_world.cpp'
 
 hyperfine --warmup 5 -N \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_necessary/mix.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_all/mix.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_all/mix.cpp' \
+    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_stdcpp_h/mix.cpp' \
+    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/mix.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=std=std.pcm import_std/mix.cpp'

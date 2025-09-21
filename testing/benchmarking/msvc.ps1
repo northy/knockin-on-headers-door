@@ -58,15 +58,15 @@ foreach ($header in $headers_to_ifc)
 Write-Host "Header units done, running benchmark"
 
 AverageRuntime -Command "$cl /c include_necessary/hello_world.cpp"
-AverageRuntime -Command "$cl /I. /c include_all/hello_world.cpp"
+AverageRuntime -Command "$cl /I. /c include_stdcpp_h/hello_world.cpp"
 AverageRuntime -Command "$cl $iostream_ifc /c import_necessary/hello_world.cpp"
-AverageRuntime -Command "$cl $stdcpp_ifc /c import_all/hello_world.cpp"
+AverageRuntime -Command "$cl $stdcpp_ifc /c import_stdcpp_h/hello_world.cpp"
 AverageRuntime -Command "$cl /c import_std/hello_world.cpp"
 
 
 AverageRuntime -Command "$cl /c include_necessary/mix.cpp"
-AverageRuntime -Command "$cl /I. /c include_all/mix.cpp"
+AverageRuntime -Command "$cl /I. /c include_stdcpp_h/mix.cpp"
 AverageRuntime -Command "$cl $necessary_ifc /c import_necessary/mix.cpp"
-AverageRuntime -Command "$cl $stdcpp_ifc /c import_all/mix.cpp"
+AverageRuntime -Command "$cl $stdcpp_ifc /c import_stdcpp_h/mix.cpp"
 AverageRuntime -Command "$cl /c import_std/mix.cpp"
 
