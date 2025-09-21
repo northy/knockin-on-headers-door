@@ -20,6 +20,7 @@ stlHeaders=(
     'bitset'
     'charconv'
     'chrono'
+    'cmath'
     'codecvt'
     'compare'
     'complex'
