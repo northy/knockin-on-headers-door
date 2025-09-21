@@ -98,19 +98,21 @@ do
     fi
 done
 
+silence_header_unit_warning="-Wno-experimental-header-units"
+
 # Clang is not able to do any of the `import_all` timings, or `import_necessary/mix.cpp`
 
 hyperfine --warmup 5 -N \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_necessary/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_all/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_stdcpp_h/hello_world.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=iostream.pcm import_necessary/hello_world.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/hello_world.cpp' \
+    "/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=iostream.pcm import_necessary/hello_world.cpp $silence_header_unit_warning" \
+    "/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/hello_world.cpp $silence_header_unit_warning" \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=std=std.pcm import_std/hello_world.cpp'
 
 hyperfine --warmup 5 -N \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_necessary/mix.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_all/mix.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_stdcpp_h/mix.cpp' \
-    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/mix.cpp' \
+    "/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/mix.cpp $silence_header_unit_warning" \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=std=std.pcm import_std/mix.cpp'
