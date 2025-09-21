@@ -11,15 +11,82 @@ if [ ! -f stdcpp.pcm ]; then
 fi
 
 stlHeaders=(
-    'iostream'
-    'map'
-    'vector'
     'algorithm'
+    'any'
+    'array'
+    'atomic'
+    'barrier'
+    'bit'
+    'bitset'
+    'charconv'
     'chrono'
-    'random'
+    'codecvt'
+    'compare'
+    'complex'
+    'concepts'
+    'condition_variable'
+    'deque'
+    'exception'
+    'expected'
+    'filesystem'
+    'format'
+    'forward_list'
+    'fstream'
+    'functional'
+    'future'
+    'initializer_list'
+    'iomanip'
+    'ios'
+    'iosfwd'
+    'iostream'
+    'istream'
+    'iterator'
+    'latch'
+    'limits'
+    'list'
+    'locale'
+    'map'
     'memory'
-    'cmath'
+    'memory_resource'
+    'mutex'
+    'new'
+    'numbers'
+    'numeric'
+    'optional'
+    'ostream'
+    'print'
+    'queue'
+    'random'
+    'ranges'
+    'ratio'
+    'regex'
+    'scoped_allocator'
+    'semaphore'
+    'set'
+    'shared_mutex'
+    'source_location'
+    'span'
+    'sstream'
+    'stack'
+    'stdexcept'
+    'stop_token'
+    'streambuf'
+    'string'
+    'string_view'
+    'syncstream'
+    'system_error'
     'thread'
+    'tuple'
+    'type_traits'
+    'typeindex'
+    'typeinfo'
+    'unordered_map'
+    'unordered_set'
+    'utility'
+    'valarray'
+    'variant'
+    'vector'
+    'version'
 )
 
 for header in "${stlHeaders[@]}"
@@ -30,8 +97,11 @@ do
     fi
 done
 
+# Clang is not able to do any of the `import_all` timings, or `import_necessary/mix.cpp`
+
 hyperfine --warmup 5 -N \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_necessary/hello_world.cpp' \
+    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_all/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_stdcpp_h/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=iostream.pcm import_necessary/hello_world.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/hello_world.cpp' \
@@ -39,6 +109,7 @@ hyperfine --warmup 5 -N \
 
 hyperfine --warmup 5 -N \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_necessary/mix.cpp' \
+    '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 include_all/mix.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. include_stdcpp_h/mix.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -I. -fmodule-file=stdcpp.pcm import_stdcpp_h/mix.cpp' \
     '/usr/bin/clang++ -c -stdlib=libc++ -std=c++23 -fmodule-file=std=std.pcm import_std/mix.cpp'
