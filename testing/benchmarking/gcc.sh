@@ -6,7 +6,7 @@ if [ ! -f gcm.cache/std.gcm ]; then
 fi
 
 if [ ! -f gcm.cache/,/stdcpp.h.gcm ]; then
-    echo "Compiling stdcpp module..."
+    echo "Compiling stdcpp header unit..."
     /usr/bin/g++ -std=c++23 -fmodules -fmodule-header stdcpp.h
 fi
 
@@ -93,7 +93,7 @@ stlHeaders=(
 for header in "${stlHeaders[@]}"
 do
     if [ ! -f "gcm.cache/usr/include/c++/15/$header".gcm ]; then
-        echo "Compiling $header module..."
+        echo "Compiling $header header unit..."
         /usr/bin/g++ -std=c++23 -fmodules-ts -x c++-system-header "$header"
     fi
 done

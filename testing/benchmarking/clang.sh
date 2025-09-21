@@ -6,7 +6,7 @@ if [ ! -f std.pcm ]; then
 fi
 
 if [ ! -f stdcpp.pcm ]; then
-    echo "Compiling stdcpp module..."
+    echo "Compiling stdcpp header unit..."
     /usr/bin/clang++ -std=c++23 -fmodule-header stdcpp.h
 fi
 
@@ -93,7 +93,7 @@ stlHeaders=(
 for header in "${stlHeaders[@]}"
 do
     if [ ! -f "$header".pcm ]; then
-        echo "Compiling $header module..."
+        echo "Compiling $header header unit..."
         /usr/bin/clang++ -stdlib=libc++ -std=c++23 -xc++-system-header --precompile "$header" -o "${header}.pcm" -Wno-user-defined-literals -Wno-pragma-system-header-outside-header
     fi
 done
