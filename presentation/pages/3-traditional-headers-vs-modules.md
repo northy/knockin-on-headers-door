@@ -308,6 +308,41 @@ using namespace std;
 ```
 
 ---
+layout: fact
+title: Encapsulation flowchart
+---
+
+```mermaid
+---
+title: Encapsulation
+---
+
+flowchart TD
+    subgraph Hidden
+        subgraph Private.h
+            Private.h_icon@{ icon: "solar:file-text-outline" }
+        end
+    end
+    subgraph UserFacing
+        subgraph UserFacing.cpp
+            UserFacing.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+        subgraph UserFacing.h
+            UserFacing.h_icon@{ icon: "solar:file-text-outline" }
+        end
+    end
+    subgraph UC[User Code]
+        subgraph main.cpp
+            main.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+    end
+
+    UserFacing.h -.-> UserFacing.cpp
+    Private.h -.-> UserFacing.cpp
+    UserFacing.h -.-> main.cpp
+```
+
+---
 layout: default
 ---
 
@@ -315,7 +350,8 @@ layout: default
 
 <br>
 
-```cpp [Private.h ~i-vscode-icons:file-type-cheader~]{*|1|4|none|none|none|none|*|none}
+<!-- Snippet from @/testing/pimpl/headers/private_dep/Private.h -->
+```cpp [Private.h ~i-vscode-icons:file-type-cheader~]{*|1|4|none|none|none|none|none|*|none}
 #define SECRET 42
 namespace Private
 {
@@ -325,8 +361,8 @@ namespace Private
 
 <div class="grid grid-cols-2 gap-x-3 items-center">
 
-```cpp [UserFacing.h ~i-vscode-icons:file-type-cheader~]{hide|*|2-6|1,8-9|none}{at: 3}
-using Pimpl = shared_ptr<struct UserFacingImpl>;
+<!-- Snippet from @/testing/pimpl/headers/UserFacing.h -->
+```cpp [UserFacing.h ~i-vscode-icons:file-type-cheader~]{hide|*|1-6|7-8|none|*|none}{at: 3}
 class UserFacing
 {
 public:
@@ -334,22 +370,24 @@ public:
     int getNumber() const;
 
 private:
-    Pimpl m_pimpl;
+    // Pimpl magic
 };
 ```
 
-```cpp [UserFacing.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2|7-8|4-5|10-11}{at: 6}
+<!-- Snippet from @/testing/pimpl/headers/UserFacing.cpp -->
+```cpp [UserFacing.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|1|2-7|9-12}{at: 6}
 #include "UserFacing.h"
 #include "Private.h"
 
-struct UserFacingImpl
-{ int number = Private::secret(); };
-
 UserFacing::UserFacing()
-    : m_pimpl(new UserFacingImpl()) {}
+{
+    // Pimpl magic
+}
 
 int UserFacing::getNumber() const
-{ return m_pimpl->number; }
+{
+    return m_pimpl->number;
+}
 ```
 
 </div>
@@ -362,6 +400,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-x-3 items-center">
 
+<!-- Snippet from @/testing/pimpl/modules_one_unit/private_dep/Private.cppm -->
 ```cpp [Private.cppm ~i-vscode-icons:file-type-cpp2~]{*|3|2|5|none|none|*|none}
 module;
 #define SECRET 42
@@ -371,19 +410,18 @@ namespace Private {
 }
 ```
 
-```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{hide|*|1|2|7-17|4-5,11,16,19-20}{at: 4}
+<!-- Snippet from @/testing/pimpl/modules_one_unit/UserFacing.cppm -->
+```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{hide|*|1|2,7-10,17-18|4-7,12-15}{at: 4}
 export module UserFacing;
 import Private;
-
-struct UserFacingImpl
-{ const int number = Private::secret(); };
 
 export class UserFacing
 {
 public:
     UserFacing()
-      : m_pimpl(std::make_shared<UserFacingImpl>())
-    {}
+    {
+        // Pimpl magic
+    }
 
     int getNumber() const
     {
@@ -391,11 +429,90 @@ public:
     }
 
 private:
-    std::shared_ptr<UserFacingImpl> m_pimpl;
+    // Pimpl magic
 };
 ```
 
 </div>
+
+---
+layout: fact
+title: Encapsulation flowchart
+---
+
+```mermaid
+---
+title: Encapsulation
+---
+
+flowchart LR
+    subgraph Hidden
+        subgraph Private.cppm
+            Private.cppm_icon@{ icon: "solar:file-text-outline" }
+        end
+        Private.pcm:::rounded
+        subgraph Private.pcm
+            Private.pcm_icon@{ icon: "solar:code-file-bold" }
+        end
+        Private.cppm --> Private.pcm
+    end
+    subgraph UserFacing
+        subgraph UserFacing.cppm
+            UserFacing.cppm_icon@{ icon: "solar:file-text-bold" }
+        end
+        subgraph UserFacing.pcm
+            UserFacing.pcm_icon@{ icon: "solar:code-file-bold" }
+        end
+        UserFacing.cppm --> UserFacing.pcm
+    end
+    subgraph UC[User Code]
+        subgraph main.cpp
+            main.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+    end
+
+    Hidden --> UserFacing
+    UserFacing --> UC
+
+    classDef rounded rx:15, ry:15
+```
+
+---
+layout: fact
+title: Encapsulation flowchart without private
+---
+
+```mermaid
+---
+title: Encapsulation
+---
+
+flowchart LR
+    subgraph Hidden
+        subgraph Private.cppm
+            Private.cppm_icon@{ icon: "solar:file-text-outline" }
+        end
+    end
+    subgraph UserFacing
+        subgraph UserFacing.cppm
+            UserFacing.cppm_icon@{ icon: "solar:file-text-bold" }
+        end
+        subgraph UserFacing.pcm
+            UserFacing.pcm_icon@{ icon: "solar:code-file-bold" }
+        end
+        UserFacing.cppm --> UserFacing.pcm
+    end
+    subgraph UC[User Code]
+        subgraph main.cpp
+            main.cpp_icon@{ icon: "solar:file-text-bold" }
+        end
+    end
+
+    Hidden --> UserFacing
+    UserFacing --> UC
+
+    classDef rounded rx:15, ry:15
+```
 
 ---
 layout: default
@@ -405,7 +522,8 @@ layout: default
 
 <br>
 
-```cpp [Private.cppm ~i-vscode-icons:file-type-cpp2~]{none|none|none|none|*|none}
+<!-- Snippet from @/testing/pimpl/modules_two_units/private_dep/Private.cppm -->
+```cpp [Private.cppm ~i-vscode-icons:file-type-cpp2~]{none|none|none|none|*}
 module;
 #define SECRET 42
 export module Private;
@@ -416,29 +534,29 @@ namespace Private {
 
 <div class="grid grid-cols-2 gap-x-3 items-center">
 
-```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{*|1|3-11|none}{at: 1}
+<!-- Snippet from @/testing/pimpl/modules_two_units/UserFacing.cppm -->
+```cpp [UserFacing.cppm ~i-vscode-icons:file-type-cpp2~]{*|1|3-10|none}{at: 1}
 export module UserFacing;
 
-using Pimpl = shared_ptr<struct UserFacingImpl>;
 export class UserFacing
 {
 public:
     UserFacing();
     int getNumber() const;
 private:
-    Pimpl m_pimpl;
+    // Pimpl magic
 };
 ```
 
-```cpp [UserFacing.impl.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2|4-5,8,11}{at: 3}
+<!-- Snippet from @/testing/pimpl/modules_two_units/UserFacing.impl.cpp -->
+```cpp [UserFacing.impl.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|2,6}{at: 3}
 module UserFacing;
 import Private;
 
-struct UserFacingImpl
-{ int number = Private::secret(); };
-
 UserFacing::UserFacing()
-    : m_pimpl(new UserFacingImpl()) {}
+{
+    // Pimpl magic
+}
 
 int UserFacing::getNumber() const
 { return m_pimpl->number; }
