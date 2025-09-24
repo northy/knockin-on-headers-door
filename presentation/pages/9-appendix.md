@@ -1,23 +1,8 @@
 ---
-layout: fact
----
-
-## Appendix A - Compile-time performance (MSVC)
-
-|            | #include | #include all |              import             | import all |          import std             |
-|------------|:--------:|:------------:|:-------------------------------:|:----------:|:-------------------------------:|
-| Helo world | 0.55s    | 1.68s        | <span v-mark.red=1>0.11s</span> | 0.12s      | 0.12s                           |
-| Mix        | 1.03s    | 1.76s        | 0.33s                           | 0.26s      | <span v-mark.red=1>0.25s</span> |
-
-<!-- ### Notes:
-- These timings come from benchmarking MSVC ourselves rather than using the timings from [P2412R0](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf). Thanks Frontier789 for writing and running the benchmark scripts on windows!
--->
-
----
 layout: default
 ---
 
-### Appendix B - Modules support in Bazel
+### Appendix A - Modules support in Bazel
 
 * [Experimental community rules](https://github.com/igormcoelho/rules_cpp23_modules) for modules
 
@@ -77,7 +62,7 @@ that are open since May 2024 for supporting modules natively on Bazel.
 layout: default
 ---
 
-### Appendix C - Modules support in Build2
+### Appendix B - Modules support in Build2
 
 <br>
 
@@ -118,7 +103,7 @@ Glossary:
 layout: statement
 ---
 
-### Appendix D - Sample code for fmt module adapter
+### Appendix C - Sample code for fmt module adapter
 
 <div class="text-left">
 
@@ -145,7 +130,7 @@ export namespace fmt
 layout: default
 ---
 
-### Appendix E - VCPKG: Module wrapper
+### Appendix D - VCPKG: Module wrapper
 
 <div class="inset-5 grid grid-cols-2 gap-x-4 items-center">
 
@@ -227,7 +212,7 @@ import fmt;
 layout: default
 ---
 
-### Appendix F - Conan: Module wrapper
+### Appendix E - Conan: Module wrapper
 
 <div class="grid grid-cols-2 gap-x-4 items-center">
 
@@ -297,7 +282,7 @@ import fmt;
 layout: default
 ---
 
-### Appendix G - Conan: Packaging BMIs
+### Appendix F - Conan: Packaging BMIs
 
 <br>
 

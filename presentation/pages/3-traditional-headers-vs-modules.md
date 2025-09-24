@@ -456,14 +456,8 @@ Let's compare compilation times:
 * `hello_world.cpp`: Needs just `<iostream>`.
 * `mix.cpp`: Requires including 9 standard headers.
 
-<br>
-
-Helpers:
-
-- `all_std.h`: Includes all standard library headers
-
 <!-- ### Notes:
-- The timings are taken from [P2412](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf): An Intel i-7 running windows
+- The source files are taken from [P2412](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf)
 -->
 
 ---
@@ -498,16 +492,14 @@ layout: default
 
 ---
 layout: fact
-info: |
-    https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf
 ---
 
 ## Compile-time performance
 
-|             | #include |
-|:-----------:|:--------:|
-| Hello world |   0.87s  |
-| Mix         |   2.20s  |
+|            | include |
+|------------|:-------:|
+| Helo world |  0.49s  |
+| Mix        |  1.00s  |
 
 ---
 layout: default
@@ -518,13 +510,27 @@ layout: default
 <div class="fixed inset-5 grid grid-cols-2 gap-x-4 items-center h-full">
 
 ```cpp [hello_world.cpp ~i-vscode-icons:file-type-cpp2~]
-#include "all_std.h"
+#include <algorithm>
+#include <any>
+#include <array>
+#include <atomic>
+#include <barrier>
+#include <bit>
+#include <bitset>
+#include <...>
 
 ...
 ```
 
 ```cpp [mix.cpp ~i-vscode-icons:file-type-cpp2~]
-#include "all_std.h"
+#include <algorithm>
+#include <any>
+#include <array>
+#include <atomic>
+#include <barrier>
+#include <bit>
+#include <bitset>
+#include <...>
 
 ...
 ```
@@ -533,16 +539,62 @@ layout: default
 
 ---
 layout: fact
-info: |
-    https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf
 ---
 
 ## Compile-time performance
 
-|             | #include | #include all |
-|-------------|:--------:|:------------:|
-| Hello world |   0.87s  |     3.43s    |
-| Mix         |   2.20s  |     3.53s    |
+|            | include | include all |
+|------------|:-------:|:-----------:|
+| Helo world |  0.49s  |    1.58s    |
+| Mix        |  1.00s  |    1.70s    |
+
+---
+layout: default
+---
+
+### `#include` `stdcpp.h`
+
+<br>
+
+```cpp [stdcpp.h ~i-vscode-icons:file-type-cheader~]
+#pragma once
+
+#include <algorithm>
+#include <any>
+#include <array>
+#include <atomic>
+#include <barrier>
+#include <bit>
+#include <bitset>
+#include <...>
+```
+
+<div class="grid grid-cols-2 gap-x-4">
+
+```cpp [hello_world.cpp ~i-vscode-icons:file-type-cpp2~]
+#include "stdcpp.h"
+
+...
+```
+
+```cpp [mix.cpp ~i-vscode-icons:file-type-cpp2~]
+#include "stdcpp.h"
+
+...
+```
+
+</div>
+
+---
+layout: fact
+---
+
+## Compile-time performance
+
+|            | include | include all | include `stdcpp.h` |
+|------------|:-------:|:-----------:|:------------------:|
+| Helo world |  0.49s  |    1.58s    |        1.58s       |
+| Mix        |  1.00s  |    1.70s    |        1.75s       |
 
 ---
 layout: default
@@ -576,16 +628,14 @@ import <thread>;
 
 ---
 layout: fact
-info: |
-    https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf
 ---
 
 ## Compile-time performance
 
-|             | #include | #include all | import |
-|-------------|:--------:|:------------:|:------:|
-| Hello world |   0.87s  |     3.43s    |  0.32s |
-| Mix         |   2.20s  |     3.53s    |  0.77s |
+|            | include | include all | include `stdcpp.h` | import |
+|------------|:-------:|:-----------:|:------------------:|:------:|
+| Helo world |  0.49s  |    1.58s    |        1.58s       |  0.07s |
+| Mix        |  1.00s  |    1.70s    |        1.75s       |  0.30s |
 
 ---
 layout: default
@@ -596,13 +646,27 @@ layout: default
 <div class="fixed inset-5 grid grid-cols-2 gap-x-4 items-center h-full">
 
 ```cpp [hello_world.cpp ~i-vscode-icons:file-type-cpp2~]
-import "all_std.h";
+import <algorithm>;
+import <any>;
+import <array>;
+import <atomic>;
+import <barrier>;
+import <bit>;
+import <bitset>;
+import <...>;
 
 ...
 ```
 
 ```cpp [mix.cpp ~i-vscode-icons:file-type-cpp2~]
-import "all_std.h";
+import <algorithm>;
+import <any>;
+import <array>;
+import <atomic>;
+import <barrier>;
+import <bit>;
+import <bitset>;
+import <...>;
 
 ...
 ```
@@ -611,24 +675,68 @@ import "all_std.h";
 
 ---
 layout: fact
-info: |
-    https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf
 ---
 
 ## Compile-time performance
 
-|             | #include | #include all | import | import all |
-|-------------|:--------:|:------------:|:------:|:----------:|
-| Hello world |   0.87s  |     3.43s    |  0.32s |    0.62s   |
-| Mix         |   2.20s  |     3.53s    |  0.77s |    0.99s   |
+|            | include | include all | include `stdcpp.h` | import | import all |
+|------------|:-------:|:-----------:|:------------------:|:------:|:----------:|
+| Helo world |  0.49s  |    1.58s    |        1.58s       |  0.07s |    0.46s   |
+| Mix        |  1.00s  |    1.70s    |        1.75s       |  0.30s |    0.86s   |
+
+---
+layout: default
+---
+
+### `import` `stdcpp.h`
+
+<br>
+
+```cpp [stdcpp.h ~i-vscode-icons:file-type-cheader~]
+#pragma once
+
+#include <algorithm>
+#include <any>
+#include <array>
+#include <atomic>
+#include <barrier>
+#include <bit>
+#include <bitset>
+#include <...>
+```
+
+<div class="grid grid-cols-2 gap-x-4">
+
+```cpp [hello_world.cpp ~i-vscode-icons:file-type-cpp2~]
+import "stdcpp.h";
+
+...
+```
+
+```cpp [mix.cpp ~i-vscode-icons:file-type-cpp2~]
+import "stdcpp.h";
+
+...
+```
+
+</div>
+
+---
+layout: fact
+---
+
+## Compile-time performance
+
+|            | include | include all | include `stdcpp.h` | import | import all | import `stdcpp.h` |
+|------------|:-------:|:-----------:|:------------------:|:------:|:----------:|:-----------------:|
+| Helo world |  0.49s  |    1.58s    |        1.58s       |  0.07s |    0.46s   |       0.10s       |
+| Mix        |  1.00s  |    1.70s    |        1.75s       |  0.30s |    0.86s   |       0.21s       |
 
 ---
 layout: default
 ---
 
 ### `import std;`
-
-[C++23](https://en.cppreference.com/w/cpp/standard_library.html#Importing_modules) enables:
 
 <div class="fixed inset-5 grid grid-cols-2 gap-x-4 items-center h-full">
 
@@ -648,16 +756,14 @@ import std;
 
 ---
 layout: fact
-info: |
-    https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p2412r0.pdf
 ---
 
-## Compile-time performance
+## Compile-time performance (MSVC)
 
-|             | #include | #include all | import | import all |            import std           |
-|-------------|:--------:|:------------:|:------:|:----------:|:-------------------------------:|
-| Hello world |   0.87s  |     3.43s    |  0.32s |    0.62s   | <span v-mark.red=1>0.08s</span> |
-| Mix         |   2.20s  |     3.53s    |  0.77s |    0.99s   | <span v-mark.red=1>0.44s</span> |
+|            | include | include all | include `stdcpp.h` |              import             | import all | import `stdcpp.h` |            import std           |
+|------------|:-------:|:-----------:|:------------------:|:-------------------------------:|:----------:|:-----------------:|:-------------------------------:|
+| Helo world |  0.49s  |    1.58s    |        1.58s       | <span v-mark.red=1>0.07s</span> |    0.46s   |       0.10s       |              0.09s              |
+| Mix        |  1.00s  |    1.70s    |        1.75s       |              0.30s              |    0.86s   |       0.21s       | <span v-mark.red=1>0.20s</span> |
 
 ---
 layout: fact
@@ -665,10 +771,10 @@ layout: fact
 
 ## Compile-time performance (GCC)
 
-|             | #include | #include all |              import             | import all |            import std           |
-|-------------|:--------:|:------------:|:-------------------------------:|:----------:|:-------------------------------:|
-| Hello world |   0.67s  |     1.63s    | <span v-mark.red=1>0.09s</span> |    0.28s   |              0.27s              |
-| Mix         |   1.82s  |     2.60s    |              1.58s              |    1.26s   | <span v-mark.red=1>1.09s</span> |
+|            | include | include all | include `stdcpp.h` |              import             | import all | import `stdcpp.h` |            import std           |
+|------------|:-------:|:-----------:|:------------------:|:-------------------------------:|:----------:|:-----------------:|:-------------------------------:|
+| Helo world |  0.65s  |    1.57s    |        1.56s       | <span v-mark.red=1>0.13s</span> |    1.57s   |       0.26s       |              0.25s              |
+| Mix        |  1.75s  |    2.38s    |        2.35s       |              1.51s              |    3.13s   |       1.12s       | <span v-mark.red=1>1.00s</span> |
 
 ---
 layout: fact
@@ -676,10 +782,10 @@ layout: fact
 
 ## Compile-time performance (clang)
 
-|             | #include | #include all | import |            import all           |            import std           |
-|-------------|:--------:|:------------:|:------:|:-------------------------------:|:-------------------------------:|
-| Hello world |   0.92s  |     2.02s    |  0.06s | <span v-mark.red=1>0.04s</span> |              0.07s              |
-| Mix         |   1.62s  |     2.23s    |    -   |               0.49s             | <span v-mark.red=1>0.35s</span> |
+|            | include | include all | include `stdcpp.h` | import | import all |        import `stdcpp.h`        |            import std           |
+|------------|:-------:|:-----------:|:------------------:|:------:|:----------:|:-------------------------------:|:-------------------------------:|
+| Helo world |  0.86s  |    1.95s    |        1.92s       |  0.05s |      -     | <span v-mark.red=1>0.03s</span> |              0.06s              |
+| Mix        |  1.50s  |    2.12s    |        2.12s       |    -   |      -     |              0.45s              | <span v-mark.red=1>0.32s</span> |
 
 ---
 layout: default
