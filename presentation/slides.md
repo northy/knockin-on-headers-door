@@ -48,7 +48,11 @@ import TitleRenderer from '#slidev/title-renderer'
 # <TitleRenderer/>
 ## An Overview of C++ Modules
 
-<footer class="absolute bottom-[20%] left-0 right-0 text-center">Alexsandro Thomas</footer>
+<footer class="absolute bottom-[15%] left-0 right-0 text-center">
+Alexsandro Thomas
+
+NDC \{ TechTown \} 2025
+</footer>
 
 ---
 layout: cover
