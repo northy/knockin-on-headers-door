@@ -16,6 +16,7 @@
   "dependencies": {
     "@iconify-json/devicon": "^1.2.43",
     "@iconify-json/devicon-plain": "^1.2.39",
+    "@iconify-json/emojione": "^1.2.3",
     "@iconify-json/solar": "^1.2.4",
     "@iconify-json/vscode-icons": "^1.2.30",
     "@slidev/cli": "^52.1.0",

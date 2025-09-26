@@ -12,9 +12,9 @@ layout: default
 
 According to [cppreference.com](https://en.cppreference.com/w/cpp/compiler_support/20.html#cpp_modules_201907L):
 
-|                 |                 GCC                |                Clang               |            MSVC            |
-|-----------------|:----------------------------------:|:----------------------------------:|:--------------------------:|
-| Modules support | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold/> |
+|                 |                 GCC                |                Clang               |                MSVC                |
+|-----------------|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| Modules support | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold-duotone/> | <emojione-white-heavy-check-mark/> |
 
 <v-click>
 <br>
@@ -43,7 +43,7 @@ layout: default
 | Internal module partition units  | <solar-question-circle-outline/> | <solar-question-circle-outline/> | <solar-question-circle-outline/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 ---
@@ -103,12 +103,12 @@ export int getAnswer()
 <hr>
 <br>
 
-|                GCC               |               Clang              |               MSVC               |
-|:--------------------------------:|:--------------------------------:|:--------------------------------:|
-|    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |
+|                 GCC                |                Clang               |                MSVC                |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -150,14 +150,14 @@ export int getAnswer()
 <hr>
 <br>
 
-|                GCC               |                Clang                |               MSVC               |
-|:--------------------------------:|:-----------------------------------:|:--------------------------------:|
-|    <solar-check-circle-bold/>    | <solar-check-circle-bold-duotone/>* |    <solar-check-circle-bold/>    |
+|                 GCC                |                Clang                |                MSVC                |
+|:----------------------------------:|:-----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <solar-check-circle-bold-duotone/>* | <emojione-white-heavy-check-mark/> |
 
 \* `warning: the implementation of header units is in an experimental phase`
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -188,12 +188,12 @@ export int getAnswer()
 <hr>
 <br>
 
-|                GCC               |               Clang              |               MSVC               |
-|:--------------------------------:|:--------------------------------:|:--------------------------------:|
-|    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |
+|                GCC                 |                Clang               |                MSVC                |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -223,14 +223,14 @@ int getAnswer() {
 <hr>
 <br>
 
-|                GCC               |                Clang               |               MSVC               |
-|:--------------------------------:|:----------------------------------:|:--------------------------------:|
-|   <solar-close-circle-outline/>* |     <solar-check-circle-bold/>     |    <solar-check-circle-bold/>    |
+|               GCC              |                Clang               |                MSVC                |
+|:------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-cross-mark-button/>* | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 \* `sorry, unimplemented: private module fragment`
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -270,12 +270,12 @@ int getAnswer()
 <hr>
 <br>
 
-|                GCC               |               Clang              |               MSVC               |
-|:--------------------------------:|:--------------------------------:|:--------------------------------:|
-|    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |
+|                GCC                 |                Clang               |                MSVC                |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -315,12 +315,12 @@ export int getAnswer()
 <hr>
 <br>
 
-|                GCC               |               Clang              |               MSVC               |
-|:--------------------------------:|:--------------------------------:|:--------------------------------:|
-|    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |
+|                 GCC                |                Clang               |                MSVC                |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -365,12 +365,12 @@ int answer()
 <hr>
 <br>
 
-|                GCC               |               Clang              |               MSVC               |
-|:--------------------------------:|:--------------------------------:|:--------------------------------:|
-|    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |    <solar-check-circle-bold/>    |
+|                 GCC                |                Clang               |                MSVC                |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -381,18 +381,18 @@ layout: default
 
 ## C++20 modules support
 
-|                                  |              GCC              |                Clang               |            MSVC            |
-|----------------------------------|:-----------------------------:|:----------------------------------:|:--------------------------:|
-| Named modules                    |   <solar-check-circle-bold/>  |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
-| Header units                     |   <solar-check-circle-bold/>  | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold/> |
-| Global module fragments          |   <solar-check-circle-bold/>  |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
-| Private module fragments         | <solar-close-circle-outline/> |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
-| Module implementation units      |   <solar-check-circle-bold/>  |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
-| Module partition interface units |   <solar-check-circle-bold/>  |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
-| Internal module partition units  |   <solar-check-circle-bold/>  |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
+|                                  |                 GCC                |                Clang               |                MSVC                |
+|----------------------------------|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| Named modules                    | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
+| Header units                     | <emojione-white-heavy-check-mark/> | <solar-check-circle-bold-duotone/> | <emojione-white-heavy-check-mark/> |
+| Global module fragments          | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
+| Private module fragments         |    <emojione-cross-mark-button/>   | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
+| Module implementation units      | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
+| Module partition interface units | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
+| Internal module partition units  | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 ---
@@ -406,10 +406,10 @@ info: |
 
 According to [cppreference.com](https://en.cppreference.com/w/cpp/compiler_support/23.html#cpp_lib_modules_202207L):
 
-|                  |            GCC libstdc++           |            Clang libc++            |          MSVC STL          |
-|------------------|:----------------------------------:|:----------------------------------:|:--------------------------:|
-| STL header units | <solar-check-circle-bold-duotone/> |    <solar-close-circle-outline/>   | <solar-check-circle-bold/> |
-| `std` module     | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold/> |
+|                  |            GCC libstdc++           |            Clang libc++            |              MSVC STL              |
+|------------------|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| STL header units | <solar-check-circle-bold-duotone/> |    <emojione-cross-mark-button/>   | <emojione-white-heavy-check-mark/> |
+| `std` module     | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold-duotone/> | <emojione-white-heavy-check-mark/> |
 
 <v-click>
 <br>
@@ -432,7 +432,7 @@ Using `mix.cpp`:
 | `std` module       | <solar-question-circle-outline/> | <solar-question-circle-outline/> | <solar-question-circle-outline/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 <!-- ### Notes:
@@ -469,12 +469,12 @@ import "stdcpp.h"
 <br>
 <hr>
 
-|        GCC libstdc++       |            Clang libc++            |          MSVC STL          |
-|:--------------------------:|:----------------------------------:|:--------------------------:|
-| <solar-check-circle-bold/> | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold/> |
+|            GCC libstdc++           |            Clang libc++            |              MSVC STL              |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <solar-check-circle-bold-duotone/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -502,14 +502,14 @@ import <barrier>;
 <hr>
 <br>
 
-|        GCC libstdc++       |            Clang libc++            |          MSVC STL          |
-|:--------------------------:|:----------------------------------:|:--------------------------:|
-| <solar-check-circle-bold/> |    <solar-close-circle-outline/>*  | <solar-check-circle-bold/> |
+|            GCC libstdc++           |          Clang libc++          |              MSVC STL              |
+|:----------------------------------:|:------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-cross-mark-button/>* | <emojione-white-heavy-check-mark/> |
 
 \* `error: [...] is ambiguous`
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -531,12 +531,12 @@ import std;
 <hr>
 <br>
 
-|        GCC libstdc++       |            Clang libc++            |          MSVC STL          |
-|:--------------------------:|:----------------------------------:|:--------------------------:|
-| <solar-check-circle-bold/> |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
+|            GCC libstdc++           |            Clang libc++            |              MSVC STL              |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 </v-click>
@@ -547,14 +547,14 @@ layout: default
 
 ## Standard library modules
 
-|                    |        GCC libstdc++       |            Clang libc++            |          MSVC STL          |
-|--------------------|:--------------------------:|:----------------------------------:|:--------------------------:|
-| stdc++ header unit | <solar-check-circle-bold/> | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold/> |
-| STL header units   | <solar-check-circle-bold/> |    <solar-close-circle-outline/>   | <solar-check-circle-bold/> |
-| `std` module       | <solar-check-circle-bold/> |     <solar-check-circle-bold/>     | <solar-check-circle-bold/> |
+|                    |            GCC libstdc++           |            Clang libc++            |              MSVC STL              |
+|--------------------|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| stdc++ header unit | <emojione-white-heavy-check-mark/> | <solar-check-circle-bold-duotone/> | <emojione-white-heavy-check-mark/> |
+| STL header units   | <emojione-white-heavy-check-mark/> |    <emojione-cross-mark-button/>   | <emojione-white-heavy-check-mark/> |
+| `std` module       | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> | <emojione-white-heavy-check-mark/> |
 
 <footer class="absolute bottom-2 left-0 right-0 text-center">
-<solar-check-circle-bold/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <solar-close-circle-outline/>: Failure
+<emojione-white-heavy-check-mark/>: Success | <solar-check-circle-bold-duotone/>: Success with warnings | <emojione-cross-mark-button/>: Failure
 </footer>
 
 ---
