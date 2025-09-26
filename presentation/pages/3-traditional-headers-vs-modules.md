@@ -614,10 +614,10 @@ layout: fact
 
 ## Compile-time performance
 
-|            | include |
-|------------|:-------:|
-| Helo world |  0.49s  |
-| Mix        |  1.00s  |
+|             | include |
+|-------------|:-------:|
+| Hello world |  0.49s  |
+| Mix         |  1.00s  |
 
 ---
 layout: default
@@ -661,10 +661,10 @@ layout: fact
 
 ## Compile-time performance
 
-|            | include | include all |
-|------------|:-------:|:-----------:|
-| Helo world |  0.49s  |    1.58s    |
-| Mix        |  1.00s  |    1.70s    |
+|             | include | include all |
+|-------------|:-------:|:-----------:|
+| Hello world |  0.49s  |    1.58s    |
+| Mix         |  1.00s  |    1.70s    |
 
 ---
 layout: default
@@ -709,10 +709,10 @@ layout: fact
 
 ## Compile-time performance
 
-|            | include | include all | include `stdcpp.h` |
-|------------|:-------:|:-----------:|:------------------:|
-| Helo world |  0.49s  |    1.58s    |        1.58s       |
-| Mix        |  1.00s  |    1.70s    |        1.75s       |
+|             | include | include all | include `stdcpp.h` |
+|-------------|:-------:|:-----------:|:------------------:|
+| Hello world |  0.49s  |    1.58s    |        1.58s       |
+| Mix         |  1.00s  |    1.70s    |        1.75s       |
 
 ---
 layout: default
@@ -750,10 +750,10 @@ layout: fact
 
 ## Compile-time performance
 
-|            | include | include all | include `stdcpp.h` | import |
-|------------|:-------:|:-----------:|:------------------:|:------:|
-| Helo world |  0.49s  |    1.58s    |        1.58s       |  0.07s |
-| Mix        |  1.00s  |    1.70s    |        1.75s       |  0.30s |
+|             | include | include all | include `stdcpp.h` | import |
+|-------------|:-------:|:-----------:|:------------------:|:------:|
+| Hello world |  0.49s  |    1.58s    |        1.58s       |  0.07s |
+| Mix         |  1.00s  |    1.70s    |        1.75s       |  0.30s |
 
 ---
 layout: default
@@ -797,10 +797,10 @@ layout: fact
 
 ## Compile-time performance
 
-|            | include | include all | include `stdcpp.h` | import | import all |
-|------------|:-------:|:-----------:|:------------------:|:------:|:----------:|
-| Helo world |  0.49s  |    1.58s    |        1.58s       |  0.07s |    0.46s   |
-| Mix        |  1.00s  |    1.70s    |        1.75s       |  0.30s |    0.86s   |
+|             | include | include all | include `stdcpp.h` | import | import all |
+|-------------|:-------:|:-----------:|:------------------:|:------:|:----------:|
+| Hello world |  0.49s  |    1.58s    |        1.58s       |  0.07s |    0.46s   |
+| Mix         |  1.00s  |    1.70s    |        1.75s       |  0.30s |    0.86s   |
 
 ---
 layout: default
@@ -845,10 +845,10 @@ layout: fact
 
 ## Compile-time performance
 
-|            | include | include all | include `stdcpp.h` | import | import all | import `stdcpp.h` |
-|------------|:-------:|:-----------:|:------------------:|:------:|:----------:|:-----------------:|
-| Helo world |  0.49s  |    1.58s    |        1.58s       |  0.07s |    0.46s   |       0.10s       |
-| Mix        |  1.00s  |    1.70s    |        1.75s       |  0.30s |    0.86s   |       0.21s       |
+|             | include | include all | include `stdcpp.h` | import | import all | import `stdcpp.h` |
+|-------------|:-------:|:-----------:|:------------------:|:------:|:----------:|:-----------------:|
+| Hello world |  0.49s  |    1.58s    |        1.58s       |  0.07s |    0.46s   |       0.10s       |
+| Mix         |  1.00s  |    1.70s    |        1.75s       |  0.30s |    0.86s   |       0.21s       |
 
 ---
 layout: default
@@ -878,10 +878,10 @@ layout: fact
 
 ## Compile-time performance (MSVC)
 
-|            | include | include all | include `stdcpp.h` |              import             | import all | import `stdcpp.h` |            import std           |
-|------------|:-------:|:-----------:|:------------------:|:-------------------------------:|:----------:|:-----------------:|:-------------------------------:|
-| Helo world |  0.49s  |    1.58s    |        1.58s       | <span v-mark.red=1>0.07s</span> |    0.46s   |       0.10s       |              0.09s              |
-| Mix        |  1.00s  |    1.70s    |        1.75s       |              0.30s              |    0.86s   |       0.21s       | <span v-mark.red=1>0.20s</span> |
+|             | include | include all | include `stdcpp.h` |              import             | import all | import `stdcpp.h` |            import std           |
+|-------------|:-------:|:-----------:|:------------------:|:-------------------------------:|:----------:|:-----------------:|:-------------------------------:|
+| Hello world |  0.49s  |    1.58s    |        1.58s       | <span v-mark.red=1>0.07s</span> |    0.46s   |       0.10s       |              0.09s              |
+| Mix         |  1.00s  |    1.70s    |        1.75s       |              0.30s              |    0.86s   |       0.21s       | <span v-mark.red=1>0.20s</span> |
 
 ---
 layout: fact
@@ -889,10 +889,10 @@ layout: fact
 
 ## Compile-time performance (GCC)
 
-|            | include | include all | include `stdcpp.h` |              import             | import all | import `stdcpp.h` |            import std           |
-|------------|:-------:|:-----------:|:------------------:|:-------------------------------:|:----------:|:-----------------:|:-------------------------------:|
-| Helo world |  0.65s  |    1.57s    |        1.56s       | <span v-mark.red=1>0.13s</span> |    1.57s   |       0.26s       |              0.25s              |
-| Mix        |  1.75s  |    2.38s    |        2.35s       |              1.51s              |    3.13s   |       1.12s       | <span v-mark.red=1>1.00s</span> |
+|             | include | include all | include `stdcpp.h` |              import             | import all | import `stdcpp.h` |            import std           |
+|-------------|:-------:|:-----------:|:------------------:|:-------------------------------:|:----------:|:-----------------:|:-------------------------------:|
+| Hello world |  0.65s  |    1.57s    |        1.56s       | <span v-mark.red=1>0.13s</span> |    1.57s   |       0.26s       |              0.25s              |
+| Mix         |  1.75s  |    2.38s    |        2.35s       |              1.51s              |    3.13s   |       1.12s       | <span v-mark.red=1>1.00s</span> |
 
 ---
 layout: fact
@@ -900,10 +900,10 @@ layout: fact
 
 ## Compile-time performance (clang)
 
-|            | include | include all | include `stdcpp.h` | import | import all |        import `stdcpp.h`        |            import std           |
-|------------|:-------:|:-----------:|:------------------:|:------:|:----------:|:-------------------------------:|:-------------------------------:|
-| Helo world |  0.86s  |    1.95s    |        1.92s       |  0.05s |      -     | <span v-mark.red=1>0.03s</span> |              0.06s              |
-| Mix        |  1.50s  |    2.12s    |        2.12s       |    -   |      -     |              0.45s              | <span v-mark.red=1>0.32s</span> |
+|             | include | include all | include `stdcpp.h` | import | import all |        import `stdcpp.h`        |            import std           |
+|-------------|:-------:|:-----------:|:------------------:|:------:|:----------:|:-------------------------------:|:-------------------------------:|
+| Hello world |  0.86s  |    1.95s    |        1.92s       |  0.05s |      -     | <span v-mark.red=1>0.03s</span> |              0.06s              |
+| Mix         |  1.50s  |    2.12s    |        2.12s       |    -   |      -     |              0.45s              | <span v-mark.red=1>0.32s</span> |
 
 ---
 layout: default
