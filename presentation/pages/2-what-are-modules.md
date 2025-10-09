@@ -539,7 +539,7 @@ export void printSize(std::vector<int> const &vec)
 module;
 
 #include <vector>
-#include <iostream>
+#include <print>
 
 export module myModule;
 
