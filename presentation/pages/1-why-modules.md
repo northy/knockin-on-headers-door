@@ -843,7 +843,7 @@ using ProductId = int;
 void process(UserId user, ProductId product);
 ```
 
-```cpp [main.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|5-6|5-7}{at: 3}
+```cpp [main.cpp ~i-vscode-icons:file-type-cpp~]{hide|*|5-6|7}{at: 3}
 #include "header.h"
 
 int main()
