@@ -14,15 +14,15 @@
     "directory": "presentation"
   },
   "dependencies": {
-    "@iconify-json/devicon": "^1.2.44",
-    "@iconify-json/devicon-plain": "^1.2.40",
+    "@iconify-json/devicon": "^1.2.45",
+    "@iconify-json/devicon-plain": "^1.2.41",
     "@iconify-json/emojione": "^1.2.3",
     "@iconify-json/solar": "^1.2.4",
-    "@iconify-json/vscode-icons": "^1.2.30",
-    "@slidev/cli": "^52.2.4",
+    "@iconify-json/vscode-icons": "^1.2.31",
+    "@slidev/cli": "^52.2.5",
     "@slidev/theme-default": "^0.25.0",
-    "playwright-chromium": "^1.55.1",
-    "plotly.js-dist-min": "^3.1.0",
+    "playwright-chromium": "^1.56.0",
+    "plotly.js-dist-min": "^3.1.1",
     "qrcode": "^1.5.4"
   },
   "scripts": {
