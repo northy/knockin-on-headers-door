@@ -653,6 +653,12 @@ Compiling... <span v-click=6>`pointlib/point.h(3): error C2011: 'Point': 'struct
 
 </v-click>
 
+<v-click at=7>
+
+Clang-Tidy: `portability-avoid-pragma-once`
+
+</v-click>
+
 ---
 layout: default
 info: |
