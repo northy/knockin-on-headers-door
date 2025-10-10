@@ -408,7 +408,7 @@ According to [cppreference.com](https://en.cppreference.com/w/cpp/compiler_suppo
 
 |                  |            GCC libstdc++           |            Clang libc++            |              MSVC STL              |
 |------------------|:----------------------------------:|:----------------------------------:|:----------------------------------:|
-| STL header units | <solar-check-circle-bold-duotone/> |    <emojione-cross-mark-button/>   | <emojione-white-heavy-check-mark/> |
+| STL header units | <emojione-white-heavy-check-mark/> |    <emojione-cross-mark-button/>   | <emojione-white-heavy-check-mark/> |
 | `std` module     | <solar-check-circle-bold-duotone/> | <solar-check-circle-bold-duotone/> | <emojione-white-heavy-check-mark/> |
 
 <v-click>
