@@ -961,7 +961,7 @@ Linking... <span v-click=13>`ld: multiple definition of 'printPoint(Point const&
 layout: default
 ---
 
-### Non-const variable definitions
+### Non-const variable definitions + Aggregate definitions
 
 <br>
 
@@ -971,28 +971,7 @@ layout: default
 int variable = 0;
 ```
 
-<v-click>
-
-```txt {lines:false}
-ld: main.o:(.bss+0x0): multiple definition of `variable'; lib.o:(.bss+0x0): first defined here
-```
-
-</v-click>
-
-<v-clicks>
-
-* Every TU that includes this header gets its own copy of the variable
-* ODR violation
-
-</v-clicks>
-
----
-layout: default
----
-
-### Aggregate definitions
-
-<br>
+<br><hr><br>
 
 ```cpp [lib.h ~i-vscode-icons:file-type-cheader~]
 #pragma once
@@ -1003,7 +982,7 @@ int aggregate[] = {10, 20, 30};
 <v-click>
 
 ```txt {lines:false}
-ld: main.o:(.bss+0x0): multiple definition of `aggregate'; lib.o:(.bss+0x0): first defined here
+ld: main.o:(.bss+0x0): multiple definition of `variable'; lib.o:(.bss+0x0): first defined here
 ```
 
 </v-click>

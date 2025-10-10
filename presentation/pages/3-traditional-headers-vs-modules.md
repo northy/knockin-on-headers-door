@@ -180,7 +180,7 @@ export void doSomething()
 layout: default
 ---
 
-### Non-const variable definitions
+### Non-const variable definitions + Aggregate definitions
 
 ```cpp [header.h ~i-vscode-icons:file-type-cheader~]
 #pragma once
@@ -188,25 +188,7 @@ layout: default
 int variable = 0;
 ```
 
----
-layout: default
----
-
-### Non-const variable definitions
-
-```cpp [module.cppm ~i-vscode-icons:file-type-cpp2~]
-export module myModule;
-
-export int variable = 0;
-```
-
----
-layout: default
----
-
-### Aggregate definitions
-
-<br>
+<br><hr><br>
 
 ```cpp [header.h ~i-vscode-icons:file-type-cheader~]
 #pragma once
@@ -218,9 +200,15 @@ int aggregate[] = {10, 20, 30};
 layout: default
 ---
 
-### Aggregate definitions
+### Non-const variable definitions + Aggregate definitions
 
-<br>
+```cpp [module.cppm ~i-vscode-icons:file-type-cpp2~]
+export module myModule;
+
+export int variable = 0;
+```
+
+<br><hr><br>
 
 ```cpp [module.cppm ~i-vscode-icons:file-type-cpp2~]
 export module myModule;
