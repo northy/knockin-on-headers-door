@@ -188,7 +188,9 @@ layout: default
 int variable = 0;
 ```
 
-<br><hr><br>
+<br>
+<hr>
+<br>
 
 ```cpp [header.h ~i-vscode-icons:file-type-cheader~]
 #pragma once
@@ -208,7 +210,9 @@ export module myModule;
 export int variable = 0;
 ```
 
-<br><hr><br>
+<br>
+<hr>
+<br>
 
 ```cpp [module.cppm ~i-vscode-icons:file-type-cpp2~]
 export module myModule;

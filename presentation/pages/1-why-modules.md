@@ -971,7 +971,9 @@ layout: default
 int variable = 0;
 ```
 
-<br><hr><br>
+<br>
+<hr>
+<br>
 
 ```cpp [lib.h ~i-vscode-icons:file-type-cheader~]
 #pragma once
